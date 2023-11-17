@@ -6,10 +6,9 @@
         {
             Console.WriteLine("Hello, World!");
             Console.WriteLine("Hello, World!");
-            Console.WriteLine("Hello, World!");
-            Console.WriteLine("fuck, World!");
-
-
+            Console.WriteLine("어지럽다....!");
+            
+            
         }
     }
 }
