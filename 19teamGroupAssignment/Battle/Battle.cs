@@ -1,4 +1,6 @@
-﻿using System;
+﻿using _19teamGroupAssignment;
+using RtanGame;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -133,7 +135,27 @@ namespace RtanGame
 //                break;
 //        }
 
+//int input = InputValidator.CheckValidInput(0, 1);
 
+//switch (input)
+//{
+//case 0:
+//    // 특수 기술 등을 사용할 수 있도록 구현
+//    break;
+//case 1:
+//    Console.WriteLine("배틀시작");
+
+//    // 플레이어가 몬스터를 공격하도록 호출
+//    battle.AttackMonster(monster);
+
+//    // 몬스터 생존 여부 확인
+//    if (!battle.MonsterIsAlive(monster))
+//    {
+//        Console.WriteLine("몬스터가 죽었습니다!");
+//    }
+
+//    break;
+//}
 //    }
 //}
 
