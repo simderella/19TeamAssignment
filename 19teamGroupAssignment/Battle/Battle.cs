@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RtanGame
@@ -48,4 +50,90 @@ namespace RtanGame
         }
     }
 }
+
+//    public void StartBattle()
+//    {
+//        Console.WriteLine($"전투 시작! {player.Name} vs {monster.Name}");
+
+//        while (player.IsAlive && monster.IsAlive)
+//        {
+//            DisplayBattleStatus();
+
+//            // 플레이어의 턴
+//            PlayerTurn();
+
+//            // 몬스터의 턴
+//            if (monster.IsAlive)
+//            {
+//                MonsterTurn();
+//            }
+//        }
+
+//        BattleResult result;
+//        if (player.IsAlive)
+//        {
+//            result = BattleResult.Victory;
+//        }
+//        else if (monster.IsAlive)
+//        {
+//            result = BattleResult.Defeat;
+//        }
+//        else
+//        {
+//            result = BattleResult.Escape;
+//        }
+
+//        DisplayBattleResult(result);
+//    }
+//    private void PlayerTurn()
+//    {
+//        Console.WriteLine($"{player.Name}의 턴");
+//        Console.WriteLine("1. 일반 공격");
+//        Console.WriteLine("0. 도망가기");
+
+//        int choice = CheckValidInput(0, 2);
+
+//        switch (choice)
+//        {
+//            case 1:
+//                int playerDamage = CalculateDamage(player.Atk, monster.Def);
+//                monster.TakeDamage(playerDamage);
+//                Console.WriteLine($"{player.Name}이(가) {monster.Name}에게 {playerDamage}의 피해를 입혔습니다!");
+//                break;
+
+
+//            case 0:
+//                Console.WriteLine($"{player.Name}이(가) 도망쳤습니다!");
+//                DisplayBattleResult(BattleResult.Escape);
+//                break;
+//        }
+//    }
+//    public enum BattleResult
+//    {
+//        Victory,
+//        Escape,
+//        Defeat
+//    }
+//    private void DisplayBattleResult(BattleResult result)
+//    {
+//        switch (result)
+//        {
+//            case BattleResult.Victory:
+//                Console.WriteLine("전투에서 승리했습니다!");
+//                player.Gold += monster.Gold;
+//                Console.WriteLine($"전리품으로 {monster.Gold} G를 획득했습니다.");
+//                break;
+
+//            case BattleResult.Escape:
+//                Console.WriteLine("전투에서 도망쳤습니다...");
+//                break;
+
+//            case BattleResult.Defeat:
+//                Console.WriteLine("전투에서 패배했습니다...");
+//                break;
+//        }
+
+
+//    }
+//}
 
