@@ -24,6 +24,23 @@
 
             static void GameDataSetting()
             {
+                Console.Clear();
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("Battle!!");
+                Console.ResetColor();
+                Console.WriteLine();
+
+                //Console.Write($"Lv.{monster.Level} ");
+                //Console.Write($"{monster.Name}  ");
+                //Console.Write($"HP {monster.Hp}");
+                Console.WriteLine();
+                //Console.WriteLine("[내정보]");
+                //Console.Write("Lv. {player.Level}  ");
+                //Console.Write("{player.Name}");
+                //Console.Write("({player.Job})");
+                //Console.WriteLine("");
+                //Console.WriteLine("HP {player.Hp}/{player.Hp}");
 
                 Random random = new Random();
                 Monster[] choices =
@@ -48,18 +65,24 @@
                 for (int i = 0; i < monsterCnt; i++) //마리수 정하기
                 {
                      Monster monsterType = choices[random.Next(0, 3)];
-                    //string monsterType = List<Monster>[random.Next(0, 3)];
                     Console.WriteLine($"Lv.{monsterType.Level} {monsterType.Name}  HP {monsterType.Hp}");
                     _monsters.Add(monsterType);   
                 }
+                Console.WriteLine();
+                Console.WriteLine("1. 공격");
+                Console.WriteLine();    
+                Console.WriteLine("원하시는 행동을 입력해주세요. \n >>");
 
-                //foreach (string monster in choices)
+                //int input = CheckValidInput(0, 1);
+                //switch (input)
                 //{
-                //    Console.WriteLine(monster);
+                //    case 0:
+
+                //        break;
+                //    case 1:
+                //        Console.WriteLine("배틀시작");
+                //        break;
                 //}
-
-
-
 
             }
 
@@ -69,39 +92,39 @@
             //    _monsters[Monster.MonsterCnt] = monster;
             //    Monster.MonsterCnt++;
             //}
-            static void BattleStart(Monster monster)
-            {
-                Console.Clear();
+            //static void BattleStart(Monster monster)
+            //{
+            //    Console.Clear();
 
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("Battle!!");
-                Console.ResetColor();
-                Console.WriteLine();
+            //    Console.ForegroundColor = ConsoleColor.Cyan;
+            //    Console.WriteLine("Battle!!");
+            //    Console.ResetColor();
+            //    Console.WriteLine();
 
-                Console.Write($"Lv.{monster.Level} ");
-                Console.Write($"{monster.Name}  ");
-                Console.Write($"HP {monster.Hp}");
-                Console.WriteLine();
-                Console.WriteLine("[내정보]");
-                //Console.Write("Lv. {player.Level}  ");
-                //Console.Write("{player.Name}");
-                //Console.Write("({player.Job})");
-                //Console.WriteLine("");
-                //Console.WriteLine("HP {player.Hp}/{player.Hp}");
+            //    Console.Write($"Lv.{monster.Level} ");
+            //    Console.Write($"{monster.Name}  ");
+            //    Console.Write($"HP {monster.Hp}");
+            //    Console.WriteLine();
+            //    //Console.WriteLine("[내정보]");
+            //    //Console.Write("Lv. {player.Level}  ");
+            //    //Console.Write("{player.Name}");
+            //    //Console.Write("({player.Job})");
+            //    //Console.WriteLine("");
+            //    //Console.WriteLine("HP {player.Hp}/{player.Hp}");
 
-                Console.WriteLine("원하시는 행동을 입력해주세요. \n >>");
-                Console.WriteLine("1. 공격");
-                int input = CheckValidInput(0, 1);
-                switch (input)
-                {
-                    case 0:
+            //    Console.WriteLine("원하시는 행동을 입력해주세요. \n >>");
+            //    Console.WriteLine("1. 공격");
+            //    int input = CheckValidInput(0, 1);
+            //    switch (input)
+            //    {
+            //        case 0:
 
-                        break;
-                    case 1:
-                        Console.WriteLine("배틀시작");
-                        break;
-                }
-            }
+            //            break;
+            //        case 1:
+            //            Console.WriteLine("배틀시작");
+            //            break;
+            //    }
+            //}
             static int CheckValidInput(int min, int max)
             {
                 while (true)
