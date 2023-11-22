@@ -1,4 +1,9 @@
-﻿namespace _19teamGroupAssignment
+﻿using System.Numerics;
+using System.Threading;
+using WMPLib;
+using System;
+
+namespace _19teamGroupAssignment
 {
     public static class GameIntro
     {
@@ -11,6 +16,14 @@
         //게임 시작 인트로 화면입니다.
         public static void DisplayIntro()
         {
+            WindowsMediaPlayer player = new WindowsMediaPlayer();
+            ThreadPool.QueueUserWorkItem(_ =>
+            {
+                player.URL = @"C:\Users\tnsrn\Desktop\dfSeason1.mp3";
+                player.settings.volume = 4;
+
+            });
+
             Console.Clear();
             Console.WriteLine("   =======================================================================================================================================================================================================================================");
             Console.WriteLine("");
