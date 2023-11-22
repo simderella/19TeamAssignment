@@ -12,10 +12,10 @@ namespace _19teamGroupAssignment
             Random random = new Random();
             Monster[] choices =
             {
-        new Monster("미니언", 2, 5, 15),
-        new Monster("공허충", 3, 9, 10),
-        new Monster("대포미니언", 5, 8, 25)
-    };
+            new Monster("미니언", 2, 5, 15),
+            new Monster("공허충", 3, 9, 10),
+            new Monster("대포미니언", 5, 8, 25)
+            };
 
             int monsterCnt = random.Next(1, 5);
 
@@ -27,12 +27,13 @@ namespace _19teamGroupAssignment
 
             // 랜덤으로 선택한 몬스터 가져오기
             Monster monster = _monsters[random.Next(0, _monsters.Count)];
-            Console.WriteLine($"전투가 시작되었습니다. {player.Name} vs {monster.Name}");
+            Console.WriteLine($"전투가 시작되었습니다.");
+            Console.WriteLine();
 
             while (player.IsAlive && monster.IsAlive)
             {
                 DisplayStatus(player);
-
+                Console.WriteLine();
                 Console.WriteLine("1. 공격");
                 Console.WriteLine("2. 도망가기");
 
@@ -88,12 +89,12 @@ namespace _19teamGroupAssignment
 
         private static void DisplayStatus(Character player)
         {
-            Console.WriteLine($"[전투 상태] {player.Name} 체력: {player.Hp}");
+            Console.WriteLine($"[나의 상태] \n {player.Name} 체력: {player.Hp}");
 
-            Console.WriteLine("적 몬스터들의 체력:");
+            Console.WriteLine("적 몬스터 체력:");
             for (int i = 0; i < _monsters.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. Lv.{_monsters[i].Level} {_monsters[i].Name} 체력: {_monsters[i].Hp}");
+                Console.WriteLine($"\n{i + 1}. Lv.{_monsters[i].Level} {_monsters[i].Name} 체력: {_monsters[i].Hp} ");
             }
         }
 
