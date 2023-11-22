@@ -1,4 +1,6 @@
-﻿namespace _19teamGroupAssignment
+﻿using WMPLib;
+
+namespace _19teamGroupAssignment
     {
 
     public class CharacterInfo
@@ -41,6 +43,7 @@
     }
 
 }
+
 
 
 
