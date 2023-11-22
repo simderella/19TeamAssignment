@@ -89,7 +89,6 @@ public class Battle
                         if (TryEscape())
                         {
                             Console.WriteLine($"{player.Name}이(가) 도망쳤습니다!");
-                            return;
                             GameIntro.DisplayMain(); // 도망쳤으면 전투 종료
                         }
                         else
