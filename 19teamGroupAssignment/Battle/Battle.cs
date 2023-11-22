@@ -21,15 +21,12 @@ namespace _19teamGroupAssignment
 
             for (int i = 0; i < monsterCnt; i++)
             {
-                Monster monsterType = choices[random.Next(0, 3)];
-                Console.WriteLine($"Lv.{monsterType.Level} {monsterType.Name}  HP {monsterType.Hp}");
+                Monster monsterType = choices[random.Next(0, 3)].Clone();
                 _monsters.Add(monsterType);
             }
 
             // 랜덤으로 선택한 몬스터 가져오기
             Monster monster = _monsters[random.Next(0, _monsters.Count)];
-            Console.WriteLine($"Lv.{monster.Level} {monster.Name} HP {monster.Hp}");
-
             Console.WriteLine($"전투가 시작되었습니다. {player.Name} vs {monster.Name}");
 
             while (player.IsAlive && monster.IsAlive)
@@ -69,7 +66,8 @@ namespace _19teamGroupAssignment
                         if (TryEscape())
                         {
                             Console.WriteLine($"{player.Name}이(가) 도망쳤습니다!");
-                            return; // 도망쳤으면 전투 종료
+                            return;
+                            GameIntro.DisplayMain(); // 도망쳤으면 전투 종료
                         }
                         else
                         {
@@ -114,23 +112,35 @@ namespace _19teamGroupAssignment
         }
         private static void DisplayResult(Character player, Monster monster)
         {
+            //전투 후 몬스터 리스트 초기화
+            _monsters.Clear();
             Console.WriteLine("전투가 종료되었습니다.");
 
             if (player.IsAlive)
             {
                 Console.WriteLine($"{player.Name}이(가) 승리했습니다!");
                 Console.WriteLine($"남은 체력: {player.Hp}");
-                Console.WriteLine($"획득 골드: {player.Gold}");
+                Console.WriteLine("아무 키나 눌러 귀환합니다...");
+                Console.ReadKey();
+                
+                GameIntro.DisplayMain();
             }
             else if (monster.IsAlive)
             {
                 Console.WriteLine($"{monster.Name}이(가) 승리했습니다!");
                 Console.WriteLine($"남은 체력: {monster.Hp}");
+                Console.WriteLine("아무 키나 눌러 귀환합니다...");
+                Console.ReadKey();
+                GameIntro.DisplayMain();
             }
             else
             {
                 Console.WriteLine($"{player.Name}이(가) 도망쳤습니다!");
+                Console.WriteLine("아무 키나 눌러 귀환합니다...");
+                Console.ReadKey();
+                GameIntro.DisplayMain();
             }
+            
         }
 
         private static void PlayerTurn(Character player, Monster monster)

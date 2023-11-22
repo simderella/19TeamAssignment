@@ -68,5 +68,6 @@ namespace _19teamGroupAssignment
             Console.WriteLine("1. 공격");
         }
     }
+
 }
 
