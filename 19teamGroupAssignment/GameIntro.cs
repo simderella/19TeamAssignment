@@ -20,7 +20,7 @@ namespace _19teamGroupAssignment
             WindowsMediaPlayer player = new WindowsMediaPlayer();
             ThreadPool.QueueUserWorkItem(_ =>
             {
-                player.URL = @"C:\Users\tnsrn\Desktop\dfSeason1.mp3";
+                player.URL = @"https://blog.kakaocdn.net/dn/dMkM1O/btsALLfnxcm/Xbt63bVuFEmLHXhRtBgOh0/dfSeason1.mp3?attach=1&knm=tfile.mp3";
                 player.settings.volume = 4;
 
             });
