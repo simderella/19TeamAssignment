@@ -1,5 +1,4 @@
-﻿using RtanGame;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +19,7 @@ namespace _19teamGroupAssignment
              new Monster("미니언",2,5,15),
              new Monster("공허충",3,9,10),
              new Monster("대포미니언",5,8,25)
-         };
+            };
             int monsterCnt = random.Next(1, 5); //랜덤으로 마리수 정하기 1~4 중 하나를 선택
 
             //List<Monster> list = new List<Monster>();

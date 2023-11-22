@@ -3,7 +3,7 @@
 
     public class CharacterInfo
     {
-        private Character character;
+        public Character character;
 
         public CharacterInfo(Character character)
         {

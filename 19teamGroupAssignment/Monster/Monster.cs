@@ -4,18 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RtanGame
+namespace _19teamGroupAssignment
 
 
 {
     public class Monster
     {
-        public string Name { get; }
+
+        public string Name { get; set; }
         public int Level { get; }
         public int Atk { get; }
-        public int MaxHp { get; private set; }
+        public int MaxHp { get;  set; }
 
-        public int Hp { get; private set; }
+        public int Hp { get;  set; }
         public bool IsAlive
         {
             get { return Hp > 0; }

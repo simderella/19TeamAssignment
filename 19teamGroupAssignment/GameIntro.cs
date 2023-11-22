@@ -4,6 +4,7 @@
     {
         //CharacterInfo 인스턴스화, 해당 클레스의 함수를 사용하기 위해.
         private static CharacterInfo characterInfo;
+        private static Monster monster;
 
         //읽기 전용으로 값을 바꿀수 없게 해줍니다.
         private static readonly string[] jobList = { "전사", "궁수", "도적", "마법사" };
@@ -105,6 +106,7 @@
                     break;
                 case 3:
                     //던전입장
+                    Battle.StartBattle(characterInfo.character, monster);
                     break;
 
             }
