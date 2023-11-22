@@ -150,8 +150,7 @@ namespace _19teamGroupAssignment
 
 
 
-            // 생성된 캐릭터 정보를 표시
-            characterInfo.DisplayMyInfo($"캐릭터 {name}({job})가 생성되었습니다.\n");//매게변수를 설정해줘서 캐릭터 생성시에 한번 생성했다는 공지가 올라옵니다.
+           
         }
     }
 
