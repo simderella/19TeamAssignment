@@ -1,9 +1,14 @@
 ﻿namespace _19teamGroupAssignment
 {
-    public static class Inventory
-    {     
+    public class Inventory
+    {
+        //필드란 무언가 = 데이터 저장
+        //메서드는 행동
+        //데이터를 저장할 필드 myInventory
+        public static List<Item> myInventory = new List<Item>();//객체(new라는 키워드)를 생성해서 실질적으로 활용 가능한 상태로 만든다.
+        
 
-        public static void DisplayInventory()
+        public static void DisplayMyInventory()
         {
             Console.Clear();
 
@@ -12,28 +17,46 @@
             Console.WriteLine("");
             Console.WriteLine("[아이템 목록]");
             Console.WriteLine("");
-            for (int i = 0; i < Character.items.Count; i++) //모든 아이템들을 보여준다.
+            
+            //나의 인벤토리 안에 있는 아이템 보여주기
+            for (int i = 0; i < myInventory.Count;/*인벤토리 길이만큼*/ i++)
             {
-                Console.WriteLine($"{i + 1}. {Character.items[i].Name}"); //i가 0부터니깐 숫자는 +1을 해서 "1.무딘 검" 이렇게 숫자가 나오게 해준다.
+                Console.Write($"{i + 1}.");
+                Console.Write("- ");
+                Console.Write(myInventory[i].Name);
+                Console.Write(" l ");
+                if (myInventory[i].Atk > 0)
+                {
+                
+                    Console.Write($"공격력 + {myInventory[i].Atk}");
+                }
+
+                if (myInventory[i].Def > 0)
+                {
+                    Console.Write($"방어력 + {myInventory[i].Def}");
+                }
+                Console.Write(" l ");
+                Console.Write(myInventory[i].Info);
+                Console.WriteLine();
             }
 
             Console.WriteLine("");
             Console.WriteLine("0. 나가기");
 
-            int input = InputValidator.CheckValidInput(0, Character.items.Count);
+            int input = InputValidator.CheckValidInput(0, 0);
             switch (input)
             {
                 case 0:
-                    GameIntro.DisplayIntro();
-                    break;
-                default:
-                    // 선택한 아이템을 착용
-                    InputValidator.EquipItem(Character.items[input - 1]);
+                    GameIntro.DisplayMain();
                     break;
             }
 
-        }
-    }
 
-    
+        }
+
+        //내 인벤토리 안에 있는 아이템들
+        
+        
+
+    }
 }

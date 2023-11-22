@@ -103,7 +103,7 @@ namespace _19teamGroupAssignment
 
                 case 2:
                     // 인벤토리 작업한거 넣기
-                    Inventory.DisplayInventory();
+                    Inventory.DisplayMyInventory();
                     break;
                 case 3:
                     //던전입장
@@ -135,10 +135,6 @@ namespace _19teamGroupAssignment
             Character newCharacter = new Character(name, job, 1, 10, 5, 100, 1500);
             characterInfo = new CharacterInfo(newCharacter);
 
-
-
-            // 생성된 캐릭터 정보를 표시
-            characterInfo.DisplayMyInfo($"캐릭터 {name}({job})가 생성되었습니다.\n");//매게변수를 설정해줘서 캐릭터 생성시에 한번 생성했다는 공지가 올라옵니다.
         }
     }
 
