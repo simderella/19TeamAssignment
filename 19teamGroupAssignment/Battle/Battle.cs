@@ -89,7 +89,7 @@ namespace _19teamGroupAssignment
 
         private static void DisplayStatus(Character player)
         {
-            Console.WriteLine($"[나의 상태] \n {player.Name} 체력: {player.Hp}");
+            Console.WriteLine($"[나의 상태] \n{player.Name} 체력: {player.Hp}");
 
             Console.WriteLine("적 몬스터 체력:");
             for (int i = 0; i < _monsters.Count; i++)
