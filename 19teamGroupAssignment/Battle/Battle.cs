@@ -7,30 +7,34 @@ namespace _19teamGroupAssignment
     {
         
         static List<Monster> _monsters = new List<Monster>();
-        public static void StartBattle(Character player, Monster monster)
+        public static void StartBattle(Character player)
         {
             Random random = new Random();
             Monster[] choices =
             {
-                    new Monster("미니언",2,5,15),
-                    new Monster("공허충",3,9,10),
-                    new Monster("대포미니언",5,8,25)
-                };
+        new Monster("미니언", 2, 5, 15),
+        new Monster("공허충", 3, 9, 10),
+        new Monster("대포미니언", 5, 8, 25)
+    };
+
             int monsterCnt = random.Next(1, 5);
 
-            for (int i = 0; i < monsterCnt; i++) //마리수 정하기
+            for (int i = 0; i < monsterCnt; i++)
             {
                 Monster monsterType = choices[random.Next(0, 3)];
                 Console.WriteLine($"Lv.{monsterType.Level} {monsterType.Name}  HP {monsterType.Hp}");
                 _monsters.Add(monsterType);
             }
+
+            // 랜덤으로 선택한 몬스터 가져오기
+            Monster monster = _monsters[random.Next(0, _monsters.Count)];
             Console.WriteLine($"Lv.{monster.Level} {monster.Name} HP {monster.Hp}");
 
             Console.WriteLine($"전투가 시작되었습니다. {player.Name} vs {monster.Name}");
 
             while (player.IsAlive && monster.IsAlive)
             {
-                DisplayStatus(player, monster);
+                DisplayStatus(player);
 
                 Console.WriteLine("1. 공격");
                 Console.WriteLine("2. 도망가기");
@@ -40,10 +44,17 @@ namespace _19teamGroupAssignment
                 switch (choice)
                 {
                     case "1":
-                        PlayerTurn(player, monster);
-                        if (!monster.IsAlive)
+                        Console.WriteLine("어떤 몬스터를 공격하시겠습니까?");
+                        for (int i = 0; i < _monsters.Count; i++)
                         {
-                            Console.WriteLine($"{monster.Name}가 격파되었습니다!");
+                            Console.WriteLine($"{i + 1}. Lv.{_monsters[i].Level} {_monsters[i].Name} HP {_monsters[i].Hp}");
+                        }
+                        int monsterChoice = InputValidator.CheckValidInput(1, _monsters.Count);
+                        PlayerTurn(player, _monsters[monsterChoice - 1]);
+
+                        if (!_monsters[monsterChoice - 1].IsAlive)
+                        {
+                            Console.WriteLine($"{_monsters[monsterChoice - 1].Name}가 격파되었습니다!");
                             break;
                         }
                         MonsterTurn(player, monster);
@@ -76,9 +87,16 @@ namespace _19teamGroupAssignment
             DisplayResult(player, monster);
         }
 
-        private static void DisplayStatus(Character player, Monster monster)
+
+        private static void DisplayStatus(Character player)
         {
-            Console.WriteLine($"[전투 상태] {player.Name} 체력: {player.Hp}, {monster.Name} 체력: {monster.Hp}");
+            Console.WriteLine($"[전투 상태] {player.Name} 체력: {player.Hp}");
+
+            Console.WriteLine("적 몬스터들의 체력:");
+            for (int i = 0; i < _monsters.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. Lv.{_monsters[i].Level} {_monsters[i].Name} 체력: {_monsters[i].Hp}");
+            }
         }
 
         private static bool TryEscape()

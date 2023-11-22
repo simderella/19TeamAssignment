@@ -106,7 +106,7 @@
                     break;
                 case 3:
                     //던전입장
-                    Battle.StartBattle(characterInfo.character, monster);
+                    Battle.StartBattle(characterInfo.character);
                     break;
 
             }
