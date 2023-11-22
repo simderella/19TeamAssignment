@@ -50,5 +50,16 @@
                     break;
             }
         }
+        //캐릭터에게 데미지를 받는 다는 개념을 주는코드
+        public void TakeDamage(int damage)
+        {
+            Hp = Math.Max(0, Hp - damage);
+        }
+        //캐릭터의 생존을 알 수 있게 해주는 코드
+            public bool IsAlive
+            {
+                get { return Hp > 0; }
+            }
+        }
     }
-}
+

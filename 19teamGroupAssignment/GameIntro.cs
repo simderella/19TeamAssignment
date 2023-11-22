@@ -1,9 +1,15 @@
-﻿namespace _19teamGroupAssignment
+﻿using System.Numerics;
+using System.Threading;
+using WMPLib;
+using System;
+
+namespace _19teamGroupAssignment
 {
     public static class GameIntro
     {
         //CharacterInfo 인스턴스화, 해당 클레스의 함수를 사용하기 위해.
         private static CharacterInfo characterInfo;
+        private static Monster monster;
 
         //읽기 전용으로 값을 바꿀수 없게 해줍니다.
         private static readonly string[] jobList = { "전사", "궁수", "도적", "마법사" };
@@ -11,6 +17,14 @@
         //게임 시작 인트로 화면입니다.
         public static void DisplayIntro()
         {
+            WindowsMediaPlayer player = new WindowsMediaPlayer();
+            ThreadPool.QueueUserWorkItem(_ =>
+            {
+                player.URL = @"https://blog.kakaocdn.net/dn/dMkM1O/btsALLfnxcm/Xbt63bVuFEmLHXhRtBgOh0/dfSeason1.mp3?attach=1&knm=tfile.mp3";
+                player.settings.volume = 4;
+
+            });
+
             Console.Clear();
             Console.WriteLine("   =======================================================================================================================================================================================================================================");
             Console.WriteLine("");
@@ -105,6 +119,7 @@
                     break;
                 case 3:
                     //던전입장
+                    Battle.StartBattle(characterInfo.character);
                     break;
 
             }
