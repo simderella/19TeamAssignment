@@ -1,4 +1,6 @@
-﻿namespace _19teamGroupAssignment
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace _19teamGroupAssignment
 {
     public static class GameIntro
     {
@@ -101,7 +103,7 @@
 
                 case 2:
                     // 인벤토리 작업한거 넣기
-
+                    Inventory.DisplayInventory();
                     break;
                 case 3:
                     //던전입장

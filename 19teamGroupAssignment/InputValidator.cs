@@ -20,6 +20,27 @@
                 Console.WriteLine("잘못된 입력입니다.");
             }
         }
+
+        //장비아이템 장착 확인 후 착용
+        public static void EquipItem(Item item)
+        {
+
+
+            // 이미 착용한 아이템인지 확인
+            if (Character.instance.EquippedItems.Contains(item)) //Character클래스 안에있는 아이템의 장착 표시를 해주어야 한다.//Inventory클래스 안에 표시해주는것을 넣어준다.
+            {
+                Console.WriteLine($"{item.Name}은(는) 이미 착용한 아이템입니다.");
+            }
+            else
+            {
+                // 장비아이템 착용 안했으면 착용
+                Character.instance.EquippedItems.Add(item);
+                Character.instance.Atk += item.Atk; // 아이템의 공격력을 추가합니다.
+                Character.instance.Def += item.Def; // 아이템의 방어력을 추가합니다.
+                Console.WriteLine($"{item.Name}을(를) 착용했습니다.");
+            }
+
+        }
     }
 
 }
