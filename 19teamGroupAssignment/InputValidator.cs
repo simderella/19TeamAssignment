@@ -20,6 +20,12 @@
                 Console.WriteLine("잘못된 입력입니다.");
             }
         }
+
+        //장비아이템 장착 시켜주는 함수
+        public static void EquipItem()
+        {
+
+        }
     }
 
 }

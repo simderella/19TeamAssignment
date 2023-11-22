@@ -1,8 +1,14 @@
 ﻿namespace _19teamGroupAssignment
 {
-    
+
     public class Character
     {
+
+        public static Character instance;//싱글톤 //캐릭터를 어디서든 편하게접근하게 할 수 있게 만들어줄려고 싱글톤으로 만들어준거다.
+                                         //캐릭터가 하나 뿐이라서 싱글톤가능, 
+
+
+
         public string Name { get; }
         public string Job { get; }
         public int Level { get; set; }
@@ -21,6 +27,12 @@
             StatsByJob(job);
             Hp = hp;
             Gold = gold;
+            instance = this;//Character.instance로 접근하기 위해 public static Character instance;를 클래스 안에 만들어준다.
+
+            //Item.cs에 있는 리스트 아이템을 넣어준다. 나중에 몬스터가 죽을때 myInventory에 아이템을 넣어줄 수 있다.
+            Inventory.myInventory.Add(Item.itemList[0]);
+            Inventory.myInventory.Add(Item.itemList[1]);
+
         }
         private void StatsByJob(string job)
         {
@@ -50,16 +62,17 @@
                     break;
             }
         }
+
+
         //캐릭터에게 데미지를 받는 다는 개념을 주는코드
         public void TakeDamage(int damage)
         {
             Hp = Math.Max(0, Hp - damage);
         }
         //캐릭터의 생존을 알 수 있게 해주는 코드
-            public bool IsAlive
-            {
-                get { return Hp > 0; }
-            }
+        public bool IsAlive
+        {
+            get { return Hp > 0; }
         }
     }
-
+}

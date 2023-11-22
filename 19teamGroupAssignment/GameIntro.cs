@@ -115,7 +115,7 @@ namespace _19teamGroupAssignment
 
                 case 2:
                     // 인벤토리 작업한거 넣기
-
+                    Inventory.DisplayMyInventory();
                     break;
                 case 3:
                     //던전입장
