@@ -11,7 +11,7 @@ namespace _19teamGroupAssignment
     {
         static List<Monster> _monsters = new List<Monster>();
 
-        static void GameDataSetting()
+        public static void GameDataSetting()
         {
 
             Random random = new Random();
