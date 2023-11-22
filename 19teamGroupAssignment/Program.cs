@@ -13,6 +13,12 @@ namespace _19teamGroupAssignment
 
     internal class Program
     {
-
+        static void Main(string[] args)
+        {
+            GameIntro.DisplayIntro();
+            GameIntro.CreateNewCharacter();
+            GameIntro.DisplayMain();
+            
+        }
     }
  }
