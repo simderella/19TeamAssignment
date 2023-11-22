@@ -8,15 +8,17 @@
         public string Info { get; }
         public int Atk { get; }
         public int Def { get; }
+        public bool IsEquip { get; set; }
 
         //Item class의 생성자
-        public Item(int partsId, string name, string info, int atk, int def)
+        public Item(int partsId, string name, string info, int atk, int def, bool isEquip = false)
         {
             PartsId = partsId;
             Name = name;
             Info = info;
             Atk = atk;
             Def = def;
+            IsEquip = isEquip;//장착관리를 위해 추가
         }
 
         //아이템 DB
@@ -28,6 +30,43 @@
             new Item(2, "가죽 갑옷", "가죽으로 만들어진 갑옷이다.", 0, 3)
 
         };
+
+
+        //itemList가 있는 곳에 만들어줘야되는 이유???????????????????
+        public void InvenItemList(bool withNumber = false, int idx = 0)
+        {
+            Console.Write("- ");
+            // 장착관리 전용
+            if (withNumber)
+            {
+                Console.Write("{0} ", idx);
+            }
+            if (IsEquip)
+            {
+                Console.Write("[E]");
+                Console.Write(InputValidator.PadRightForMixedText(Name, 9));
+                //IsEquip가 true일 때 Character의 공격과 방어에 값을 더해줌
+                Character.instance.Atk += Atk;
+                Character.instance.Def += Def;
+            }
+            else Console.Write(InputValidator.PadRightForMixedText(Name, 12));
+
+            Console.Write(" | ");
+            if (Atk > 0)
+            {
+
+                Console.Write($"공격력 + {Atk}");
+            }
+            if (Def > 0)
+            {
+                Console.Write($"방어력 + {Def}");
+            }
+            Console.Write(" | ");
+            Console.WriteLine($"{Info}");
+        }
+
+
+        
 
     }
 }
