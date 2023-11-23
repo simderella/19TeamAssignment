@@ -15,14 +15,26 @@
 
             Console.Clear();
             Console.WriteLine(info);
-            Console.WriteLine("상태 보기");
+            Console.WriteLine("■상태 보기■");
+            Console.WriteLine();
+
             Console.WriteLine("캐릭터의 정보를 표시합니다.");
             Console.WriteLine();
             Console.WriteLine($"Lv.{character.Level}");
-            Console.WriteLine($"{character.Name}({character.Job})");
-            Console.WriteLine($"공격력 :{character.Atk}");
+            Console.WriteLine();
+
+            Console.WriteLine($"{character.Name}  ({character.Job})");
+            Console.WriteLine();
+
+            Console.WriteLine($"공격력 : {character.Atk}");
+            Console.WriteLine();
+
             Console.WriteLine($"방어력 : {character.Def}");
+            Console.WriteLine();
+
             Console.WriteLine($"체력 : {character.Hp}");
+            Console.WriteLine();
+
             Console.WriteLine($"Gold : {character.Gold} G");
             Console.WriteLine();
             Console.WriteLine("0. 나가기");

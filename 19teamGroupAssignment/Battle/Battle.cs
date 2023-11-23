@@ -27,7 +27,7 @@ public class Battle
 
         // 랜덤으로 선택한 몬스터 가져오기
         Monster monster = _monsters[random.Next(0, _monsters.Count)];
-        Console.WriteLine($"전투가 시작되었습니다.");
+        Console.WriteLine($"■식구조의 던전에 입장하셨습니다.■");
         Console.WriteLine();
 
             while (player.IsAlive && _monsters.Any(monster => monster.IsAlive))
@@ -35,6 +35,7 @@ public class Battle
                 DisplayStatus(player);
                 Console.WriteLine();
                 Console.WriteLine("1. 공격");
+                Console.WriteLine();
                 Console.WriteLine("2. 도망가기");
 
                 string choice = Console.ReadLine();
@@ -42,12 +43,12 @@ public class Battle
                 switch (choice)
                 {
                     case "1":
-                        Console.WriteLine("어떤 몬스터를 공격하시겠습니까?");
+                        Console.WriteLine("어떤 몬스터를 공격하시겠습니까?\n");
                         List<Monster> availableMonsters = _monsters.Where(monster => monster.IsAlive).ToList();
 
                         if (availableMonsters.Count == 0)
                         {
-                            Console.WriteLine("모든 몬스터가 격파되었습니다!");
+                            Console.WriteLine("적 몬스터가 출현했습니다.");
                             DisplayResult(player, monster); // 전투 종료로 이동
                             return;
                         }

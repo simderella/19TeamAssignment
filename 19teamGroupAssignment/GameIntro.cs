@@ -99,11 +99,14 @@ namespace _19teamGroupAssignment
         {
 
             Console.Clear();
-            Console.WriteLine("식구조 마을에 오신것을 환영합니다.");
+            Console.WriteLine("■식구조 마을에 오신것을 환영합니다.■");
+            Console.WriteLine();
             Console.WriteLine("이곳에서 던전에 들어가기 전 행동을 선택하여 주세요.");
             Console.WriteLine();
             Console.WriteLine("1. 상태 보기");
+            Console.WriteLine();
             Console.WriteLine("2. 인벤토리");
+            Console.WriteLine();
             Console.WriteLine("3. 던전가기");
             Console.WriteLine();
             int input = InputValidator.CheckValidInput(1, 3);
@@ -131,16 +134,20 @@ namespace _19teamGroupAssignment
         {
             Console.Clear();
 
-            Console.WriteLine("새로운 캐릭터를 만듭니다.");
-            Console.Write("이름을 입력하세요: ");
+            Console.WriteLine("★새로운 캐릭터를 만듭니다.★");
+            Console.WriteLine();
+            Console.Write("◀이름을 입력하세요▶: ");
             string name = Console.ReadLine();
 
             // 직업 선택 부분
-            Console.WriteLine("직업을 선택하세요:");
+            Console.WriteLine("\n◀직업을 선택하세요▶");
             for (int i = 0; i < jobList.Length; i++)//for문으로 직업을 보여줌
             {
-                Console.WriteLine($"{i + 1}. {jobList[i]}");
+                Console.WriteLine($"\n{i + 1}. {jobList[i]}");
+                
             }
+            Console.WriteLine();
+            Console.WriteLine("원하시는 직업의 번호를 입력해주세요 \n>> ");
             int jobInput = InputValidator.CheckValidInput(1, jobList.Length);//값이 올바르게 들어갔는지 확인하는 함수.
             string job = jobList[jobInput - 1];//선택한 직업으로 결정
 
