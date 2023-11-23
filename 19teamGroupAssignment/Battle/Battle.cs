@@ -29,9 +29,9 @@ public class Battle
         Monster monster = _monsters[random.Next(0, _monsters.Count)];
         Console.WriteLine($"■식구조의 던전에 입장하셨습니다.■");
         Console.WriteLine();
-
             while (player.IsAlive && _monsters.Any(monster => monster.IsAlive))
             {
+                Console.WriteLine();
                 DisplayStatus(player);
                 Console.WriteLine();
                 Console.WriteLine("1. 공격");
@@ -48,7 +48,6 @@ public class Battle
 
                         if (availableMonsters.Count == 0)
                         {
-                            Console.WriteLine("적 몬스터가 출현했습니다.");
                             DisplayResult(player, monster); // 전투 종료로 이동
                             return;
                         }
@@ -63,7 +62,7 @@ public class Battle
 
                         if (!availableMonsters[monsterChoice - 1].IsAlive)
                         {
-                            Console.WriteLine($"{availableMonsters[monsterChoice - 1].Name}가 격파되었습니다!");
+                            Console.WriteLine($"{availableMonsters[monsterChoice - 1].Name}가 격파되었습니다!\n");
                         }
 
                         Monster aliveMonster = _monsters.FirstOrDefault(monster => monster.IsAlive);
@@ -74,13 +73,13 @@ public class Battle
 
                             if (!player.IsAlive)
                             {
-                                Console.WriteLine($"{player.Name}가 격파되었습니다!");
+                                Console.WriteLine($"{player.Name}가 격파되었습니다!\n");
                                 return;
                             }
                         }
                         else
                         {
-                            Console.WriteLine("모든 몬스터가 격파되었습니다!");
+                            Console.WriteLine("모든 몬스터가 격파되었습니다!\n");
                             DisplayResult(player, _monsters.FirstOrDefault()); // 전투 종료로 이동
                             return;
                         }
@@ -89,12 +88,12 @@ public class Battle
                     case "2":
                         if (TryEscape())
                         {
-                            Console.WriteLine($"{player.Name}이(가) 도망쳤습니다!");
+                            Console.WriteLine($"{player.Name}이(가) 도망쳤습니다!\n");
                             GameIntro.DisplayMain(); // 도망쳤으면 전투 종료
                         }
                         else
                         {
-                            Console.WriteLine($"{player.Name}이(가) 도망에 실패했습니다!");
+                            Console.WriteLine($"{player.Name}이(가) 도망에 실패했습니다!\n");
                             MonsterTurn(player, monster); // 도망치지 못했을 경우 몬스터의 공격
                         }
                         break;
@@ -111,9 +110,9 @@ public class Battle
 
     private static void DisplayStatus(Character player)
     {
-        Console.WriteLine($"[나의 상태] \n{player.Name} 체력: {player.Hp}");
+        Console.WriteLine($"[나의 상태] \n{player.Name} 체력: {player.Hp}\n");
 
-        Console.WriteLine("적 몬스터 체력:");
+        Console.WriteLine("▣던전에 몬스터가 출현했습니다.▣");
         for (int i = 0; i < _monsters.Count; i++)
         {
             Console.WriteLine($"\n{i + 1}. Lv.{_monsters[i].Level} {_monsters[i].Name} 체력: {_monsters[i].Hp} ");
@@ -137,12 +136,12 @@ public class Battle
     {
         //전투 후 몬스터 리스트 초기화
         _monsters.Clear();
-        Console.WriteLine("전투가 종료되었습니다.");
+        Console.WriteLine("전투가 종료되었습니다.\n");
 
         if (player.IsAlive)
         {
-            Console.WriteLine($"{player.Name}이(가) 승리했습니다!");
-            Console.WriteLine($"남은 체력: {player.Hp}");
+            Console.WriteLine($"{player.Name}이(가) 승리했습니다!\n");
+            Console.WriteLine($"남은 체력: {player.Hp}\n");
             Console.WriteLine("아무 키나 눌러 귀환합니다...");
             Console.ReadKey();
                 
@@ -150,15 +149,15 @@ public class Battle
         }
         else if (monster.IsAlive)
         {
-            Console.WriteLine($"{monster.Name}이(가) 승리했습니다!");
-            Console.WriteLine($"남은 체력: {monster.Hp}");
+            Console.WriteLine($"{monster.Name}이(가) 승리했습니다!\n");
+            Console.WriteLine($"남은 체력: {monster.Hp}\n");
             Console.WriteLine("아무 키나 눌러 귀환합니다...");
             Console.ReadKey();
             GameIntro.DisplayMain();
         }
         else
         {
-            Console.WriteLine($"{player.Name}이(가) 도망쳤습니다!");
+            Console.WriteLine($"{player.Name}이(가) 도망쳤습니다!\n");
             Console.WriteLine("아무 키나 눌러 귀환합니다...");
             Console.ReadKey();
             GameIntro.DisplayMain();
@@ -174,11 +173,11 @@ public class Battle
         if (damageDealt > 0)
         {
             monster.TakeDamage(damageDealt);
-            Console.WriteLine($"{player.Name}이(가) {monster.Name}에게 {damageDealt}의 피해를 입혔습니다!");
+            Console.WriteLine($"{player.Name}이(가) {monster.Name}에게 {damageDealt}의 피해를 입혔습니다!\n");
         }
         else
         {
-            Console.WriteLine($"{player.Name}의 공격이 {monster.Name}에게 효과가 없습니다!");
+            Console.WriteLine($"{player.Name}의 공격이 {monster.Name}에게 효과가 없습니다!\n");
         }
     }
 
@@ -190,11 +189,11 @@ public class Battle
         if (damageDealt > 0)
         {
             player.TakeDamage(damageDealt);
-            Console.WriteLine($"{monster.Name}이(가) {player.Name}에게 {damageDealt}의 피해를 입혔습니다!");
+            Console.WriteLine($"{monster.Name}이(가) {player.Name}에게 {damageDealt}의 피해를 입혔습니다!\n");
         }
         else
         {
-            Console.WriteLine($"{monster.Name}의 공격이 {player.Name}에게 효과가 없습니다!");
+            Console.WriteLine($"{monster.Name}의 공격이 {player.Name}에게 효과가 없습니다!\n");
         }
     }
  }
