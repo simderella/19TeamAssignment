@@ -79,7 +79,20 @@ public class Battle
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine("모든 몬스터가 격파되었습니다!\n");
+                            Console.ResetColor();
+
+                            Console.WriteLine("▣던전 내에 몬스터를 모두 처치했습니다.▣");
+                            for (int i = 0; i < _monsters.Count; i++)
+                            {
+                                if (!_monsters[i].IsAlive)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                }
+                                Console.WriteLine($"\n Lv.{_monsters[i].Level} {_monsters[i].Name} 체력: {_monsters[i].Hp} ");
+                                Console.ResetColor();
+                            }
                             DisplayResult(player, _monsters.FirstOrDefault()); // 전투 종료로 이동
                             return;
                         }
@@ -121,7 +134,7 @@ public class Battle
                 }
                 Console.WriteLine($"\n Lv.{_monsters[i].Level} {_monsters[i].Name} 체력: {_monsters[i].Hp} ");
                 Console.ResetColor();
-            }
+         }
     }
 
     private static bool TryEscape()
@@ -140,13 +153,16 @@ public class Battle
     private static void DisplayResult(Character player, Monster monster)
     {
         //전투 후 몬스터 리스트 초기화
+
         _monsters.Clear();
-        Console.WriteLine("전투가 종료되었습니다.\n");
+        Console.WriteLine("\n전투가 종료되었습니다.\n");
 
         if (player.IsAlive)
         {
             Console.WriteLine($"{player.Name}이(가) 승리했습니다!\n");
+            Console.ForegroundColor= ConsoleColor.Green;
             Console.WriteLine($"남은 체력: {player.Hp}\n");
+            Console.ResetColor();
             Console.WriteLine("아무 키나 눌러 귀환합니다...");
             Console.ReadKey();
                 
