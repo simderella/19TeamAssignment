@@ -63,6 +63,12 @@ public class Battle
                         if (!availableMonsters[monsterChoice - 1].IsAlive)
                         {
                             Console.WriteLine($"{availableMonsters[monsterChoice - 1].Name}가 격파되었습니다!\n");
+                            //if (_monsters[i].Hp == 0)
+                            //{
+                            //    Console.ForegroundColor = ConsoleColor.Red;
+                            //    Console.WriteLine(); // 여기에 몬스터피가 0인 애를 넣어주고
+                            //    Console.ResetColor();
+                            //}
                         }
 
                         Monster aliveMonster = _monsters.FirstOrDefault(monster => monster.IsAlive);
@@ -115,8 +121,13 @@ public class Battle
         Console.WriteLine("▣던전에 몬스터가 출현했습니다.▣");
         for (int i = 0; i < _monsters.Count; i++)
         {
-            Console.WriteLine($"\n Lv.{_monsters[i].Level} {_monsters[i].Name} 체력: {_monsters[i].Hp} ");
-        }
+                if (!_monsters[i].IsAlive)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                }
+                Console.WriteLine($"\n Lv.{_monsters[i].Level} {_monsters[i].Name} 체력: {_monsters[i].Hp} ");
+                Console.ResetColor();
+            }
     }
 
     private static bool TryEscape()
