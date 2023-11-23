@@ -39,7 +39,7 @@
             // 장착관리 전용
             if (withNumber)
             {
-                Console.Write("{0} ", idx);
+                Console.Write("{0}. ", idx);
             }
             if (IsEquip)
             {
@@ -49,24 +49,27 @@
                 Character.instance.Atk += Atk;
                 Character.instance.Def += Def;
             }
-            else Console.Write(InputValidator.PadRightForMixedText(Name, 12));
+            else 
+            { 
+                Console.Write(InputValidator.PadRightForMixedText(Name, 12));
+                //Character.instance.Atk -= Atk;
+                //Character.instance.Def -= Def;
+            }
 
             Console.Write(" | ");
-            if (Atk > 0)
+            if (Atk != 0)
             {
-
-                Console.Write($"공격력 + {Atk}");
+                Console.Write($"공격력 {(Atk >=0 ? "+" : "")}{Atk}");
             }
-            if (Def > 0)
+            if (Def != 0)
             {
-                Console.Write($"방어력 + {Def}");
+                Console.Write($"방어력 {(Def>=0? "+":"")}{Def}");
             }
             Console.Write(" | ");
             Console.WriteLine($"{Info}");
         }
 
 
-        
 
     }
 }
