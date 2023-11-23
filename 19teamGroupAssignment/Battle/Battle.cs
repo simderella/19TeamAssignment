@@ -115,7 +115,7 @@ public class Battle
         Console.WriteLine("▣던전에 몬스터가 출현했습니다.▣");
         for (int i = 0; i < _monsters.Count; i++)
         {
-            Console.WriteLine($"\n{i + 1}. Lv.{_monsters[i].Level} {_monsters[i].Name} 체력: {_monsters[i].Hp} ");
+            Console.WriteLine($"\n Lv.{_monsters[i].Level} {_monsters[i].Name} 체력: {_monsters[i].Hp} ");
         }
     }
 
