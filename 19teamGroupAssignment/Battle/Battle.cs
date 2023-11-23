@@ -63,12 +63,6 @@ public class Battle
                         if (!availableMonsters[monsterChoice - 1].IsAlive)
                         {
                             Console.WriteLine($"{availableMonsters[monsterChoice - 1].Name}가 격파되었습니다!\n");
-                            //if (_monsters[i].Hp == 0)
-                            //{
-                            //    Console.ForegroundColor = ConsoleColor.Red;
-                            //    Console.WriteLine(); // 여기에 몬스터피가 0인 애를 넣어주고
-                            //    Console.ResetColor();
-                            //}
                         }
 
                         Monster aliveMonster = _monsters.FirstOrDefault(monster => monster.IsAlive);
